@@ -1,0 +1,22 @@
+@import "./color.css";
+@import "./animation.css";
+
+:root {
+  --heading-color: var(--white-100);
+  --text-color: var(--white-96);
+}
+
+body {
+  font-family: var(--font-inter);
+  background-color: var(--black-2);
+  width: 100vw;
+  min-height: 100vh;
+}
+
+main {
+  background-color: var(--black-8);
+  flex-basis: 0;
+  flex-grow: 1;
+  flex-shrink: 1;
+  border-radius: 1rem;
+}
