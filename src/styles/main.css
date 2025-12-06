@@ -1,5 +1,6 @@
 @import "./color.css";
 @import "./animation.css";
+@import "./shadow.css";
 
 :root {
     --heading-color: var(--white-100);
@@ -19,8 +20,5 @@ main {
     flex-grow: 1;
     flex-shrink: 1;
     border-radius: 1rem;
-}
-
-.css-u68w3b {
-    width: 80vw;
+    box-shadow: var(--shadow-sm);
 }

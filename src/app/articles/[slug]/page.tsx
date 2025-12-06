@@ -1,8 +1,10 @@
 import { createReader } from "@keystatic/core/reader";
 import React from "react";
 import Markdoc from "@markdoc/markdoc";
+import "./styles.css";
 
 import keystaticConfig from "../../../../keystatic.config";
+import { Icon } from "@/components/Icon";
 
 const reader = createReader(process.cwd(), keystaticConfig);
 
@@ -25,10 +27,18 @@ export default async function Article({
   const renderable = Markdoc.transform(node);
   return (
     <>
-      <h1>{article.title}</h1>
-      {Markdoc.renderers.react(renderable, React)}
-      <hr />
-      <a href={`/articles`}>Back to Articles</a>
+      <main className="page-article p-block-9xl">
+        <div className="container-sm ds-flex-start flow-col-nw gap-3xl">
+          <div className="article-highlight width-fill ds-flex-center radius-md bg-black-12 shadow-sm">
+            <Icon name="Fediverse" size={128} />
+          </div>
+          <div>
+            {/*<h1>{article.title}</h1>*/}
+            {Markdoc.renderers.react(renderable, React)}
+          </div>
+          <a href={`/articles`}>Back to Articles</a>
+        </div>
+      </main>
     </>
   );
 }
