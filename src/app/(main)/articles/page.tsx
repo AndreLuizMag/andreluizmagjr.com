@@ -1,5 +1,5 @@
 import { createReader } from "@keystatic/core/reader";
-import keystaticConfig from "../../../keystatic.config";
+import keystaticConfig from "../../../../keystatic.config";
 import "./styles.css";
 import Link from "next/link";
 import { Icon } from "@/components/Icon";
@@ -52,39 +52,50 @@ export default async function Page() {
         <ul className="list-style-none p-0 ds-grid grid-tpl-col-3 md:grid-tpl-col-2 gap-3xl md:gap-md">
           {articlesWithRelations.map((article) => (
             <li key={article.slug}>
-              <Link href={`/articles/${article.slug}`} className="article-card">
-                {/* Título */}
-                <h2>{article.entry.title}</h2>
+              <Link
+                href={`/articles/${article.slug}`}
+                className="article-card ds-flex flow-col-nw gap-3xl width-fill text-decoration-none cursor-pointer p-md line-black-16 hover:line-black-20 radius-md property-shadow duration-fast ease-out"
+              >
+                <Icon
+                  name={article.entry.iconHighlight}
+                  size={64}
+                  className="icon color-white-64 property-color duration-fast ease-out"
+                />
+                <div>
+                  {/* Título */}
+                  <h2 className="title font-size-lg mb-xs color-white-88 property-color duration-fast ease-out">
+                    {article.entry.title}
+                  </h2>
 
-                {/* Excerpt */}
-                <p>{article.entry.excerpt}</p>
+                  {/* Excerpt */}
+                  <p className="excerpt color-white-72 mt-xs mb-md line-height-default property-color duration-fast ease-out">
+                    {article.entry.excerpt.length > 92
+                      ? `${article.entry.excerpt.slice(0, 92)}...`
+                      : article.entry.excerpt}
+                  </p>
 
-                {/* Categorias */}
-                {article.categories.length > 0 && (
-                  <div>
-                    {article.categories.map((cat) => (
-                      <span key={cat.slug}>{cat.name}</span>
-                    ))}
+                  <div className="width-fill ds-flex flow-row-nw justify-between align-center">
+                    {/* Categorias */}
+                    {article.categories.length > 0 && (
+                      <div className="category-group line-black-16 p-inline-2xs p-block-4xs radius-3xs">
+                        {article.categories.map((cat) => (
+                          <span
+                            key={cat.slug}
+                            className="category font-size-sm color-white-64"
+                          >
+                            {cat.name}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+
+                    {article.entry.publishedAt && (
+                      <span className="publish-at font-size-sm color-white-64">
+                        {article.entry.publishedAt.replace(/-/g, "/")}
+                      </span>
+                    )}
                   </div>
-                )}
-
-                {/* Tags */}
-                {article.tags.length > 0 && (
-                  <div>
-                    {article.tags.map((tag) => (
-                      <span key={tag.slug}>{tag.name}</span>
-                    ))}
-                  </div>
-                )}
-
-                {/* Ícone e cor */}
-                {article.entry.iconHighlight && (
-                  <span
-                    style={{ color: article.entry.colorHighlight || undefined }}
-                  >
-                    {article.entry.iconHighlight}
-                  </span>
-                )}
+                </div>
               </Link>
             </li>
           ))}

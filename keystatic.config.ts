@@ -74,6 +74,9 @@ export default config({
       slugField: "name",
       schema: {
         name: fields.slug({ name: { label: "Category" } }),
+        colorHighlight: fields.text({
+          label: 'Color highlight'
+        })
       },
     }),
   },

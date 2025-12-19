@@ -5,41 +5,29 @@ import "helix-color";
 import "../styles/main.css";
 import Script from "next/script";
 import type { ReactNode } from "react";
-import { Header } from "@/components/Header";
-
-const inter = Inter({
-	variable: "--font-inter",
-	subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
-	title: "André Luiz",
-	description: "My portfolio website",
+  title: "André Luiz",
+  description: "My portfolio website",
 };
 
 const RootLayout = ({
-	children,
+  children,
 }: Readonly<{
-	children: ReactNode;
+  children: ReactNode;
 }>) => {
-	return (
-		<html lang="en">
-			<head>
-				<Script
-					defer
-					src="https://cloud.umami.is/script.js"
-					data-website-id="3c21baa8-a7ff-419c-8bc2-839eb12fa763"
-				/>
-			</head>
-			<body
-				className={`${inter.variable} ds-flex flow-row-nw justify-start align-stretch p-md`}
-			>
-				{children}
-
-				<Header />
-			</body>
-		</html>
-	);
+  return (
+    <html lang="en">
+      <head>
+        <Script
+          defer
+          src="https://cloud.umami.is/script.js"
+          data-website-id="3c21baa8-a7ff-419c-8bc2-839eb12fa763"
+        />
+      </head>
+      {children}
+    </html>
+  );
 };
 
 export default RootLayout;
