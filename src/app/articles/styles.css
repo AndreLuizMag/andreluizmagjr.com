@@ -1,18 +1,18 @@
 .page-articles {
-    .article-card {
-        .article-img-highlight {
-            height: 128px;
-            border-radius: 10px;
-        }
-    }
+	.article-card {
+		.article-img-highlight {
+			height: 128px;
+			border-radius: 10px;
+		}
+	}
 
-    .article-card:hover {
-        .article-img-highlight {
-            background-color: var(--black-12);
+	.article-card:hover {
+		.article-img-highlight {
+			background-color: var(--black-12);
 
-            .icon {
-                color: var(--white-100);
-            }
-        }
-    }
+			.icon {
+				color: var(--white-100);
+			}
+		}
+	}
 }

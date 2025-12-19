@@ -5,8 +5,8 @@ import { Linkedin } from "./Linkedin";
 import { Mastodon } from "./Mastodon";
 
 export const iconPaths: Record<string, ReactElement> = {
-  Fediverse,
-  Github,
-  Linkedin,
-  Mastodon,
+	Fediverse,
+	Github,
+	Linkedin,
+	Mastodon,
 };

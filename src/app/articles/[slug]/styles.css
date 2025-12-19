@@ -1,9 +1,9 @@
 :root {
-    --heading-line-height: 1.6;
+	--heading-line-height: 1.6;
 }
 
 .page-article {
-    .article-highlight {
-        height: 256px;
-    }
+	.article-highlight {
+		height: 256px;
+	}
 }
