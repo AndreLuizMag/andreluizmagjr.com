@@ -75,11 +75,11 @@ export default async function Article({
 						<span>{publishedAt}</span>
 					</div>
 					<div className="article-highlight width-fill ds-flex-center radius-md bg-black-12 shadow-sm">
-						<Icon name="Fediverse" size={128} />
+						<Icon name="Fediverse" size={128} className="color-white-100" />
 					</div>
 				</div>
 				<div className="p-inline-md">
-					<h1 className="font-size-3xl mb-xs">{article.title}</h1>
+					<h1 className="font-size-3xl mb-md">{article.title}</h1>
 					<div>
 						{/*<h1>{article.title}</h1>*/}
 						{Markdoc.renderers.react(renderable, React)}

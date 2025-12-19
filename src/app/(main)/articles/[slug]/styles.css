@@ -1,5 +1,6 @@
 :root {
-	--heading-line-height: 1.6;
+	/*--heading-line-height: 1.6;*/
+	--text-color: var(--white-88);
 }
 
 .page-article {
