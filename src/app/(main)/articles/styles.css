@@ -1,15 +1,12 @@
 .page-articles {
-  .article-card {
+	.article-card:hover {
+		.icon,
+		.title {
+			color: var(--white-100);
+		}
 
-  }
-
-  .article-card:hover {
-    .icon, .title {
-      color: var(--white-100);
-    }
-
-    .excerpt{
-      color: var(--white-88);
-    }
-  }
+		.excerpt {
+			color: var(--white-88);
+		}
+	}
 }
