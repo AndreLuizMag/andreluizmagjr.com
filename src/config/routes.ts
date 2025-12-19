@@ -2,5 +2,5 @@
  * All routes
  */
 export const routes = {
-  home: "/",
+	home: "/",
 } as const;

@@ -21,8 +21,8 @@ importers:
         specifier: ^0.7.1
         version: 0.7.1
       helix-css:
-        specifier: ^1.0.0
-        version: 1.0.0
+        specifier: ^1.0.1
+        version: 1.0.1
       next:
         specifier: 16.0.7
         version: 16.0.7(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.1(react@19.2.1))(react@19.2.1)
@@ -1317,8 +1317,8 @@ packages:
   helix-color@0.7.1:
     resolution: {integrity: sha512-6JnRlUoFQghc0iQMRsyEH4x/g73MEBdgZGTO/W12jkcowSOtf74D5iMke5+8PKZFMJselGx5lXFqfyjIb8NzkA==}
 
-  helix-css@1.0.0:
-    resolution: {integrity: sha512-z1ZsittS0Gfezjd3E+qm5Mre9h0M3b90OiEnjmFXr/aV3aje/5oKM4lpehzwUYYz9Hlq93zIkqC1Gxl2H3p3/Q==}
+  helix-css@1.0.1:
+    resolution: {integrity: sha512-9yUb/r66DrhYwRbwCxn1nBJAkpzv0ibHwgI30yDLW/ZvK5So1UKVFD6FxkcZv8o9QmMcnj0ocPfsP8LTdlkYXg==}
 
   idb-keyval@6.2.2:
     resolution: {integrity: sha512-yjD9nARJ/jb1g+CvD0tlhUHOrJ9Sy0P8T9MF3YaLlHnSRpwPfpTX0XIvpmw3gAJUmEu3FiICLBDPXVwyEvrleg==}
@@ -3609,7 +3609,7 @@ snapshots:
 
   helix-color@0.7.1: {}
 
-  helix-css@1.0.0: {}
+  helix-css@1.0.1: {}
 
   idb-keyval@6.2.2: {}
 

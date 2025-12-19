@@ -1,2 +1,6 @@
 name: test-1
+<<<<<<< HEAD
 color: red
+=======
+colorHighlight: red
+>>>>>>> integration-with-keystatic

@@ -1,18 +1,18 @@
 :root {
-  --fade-in: cubic-bezier(0.35, 0.08, 0.34, 1.53);
+	--fade-in: cubic-bezier(0.35, 0.08, 0.34, 1.53);
 }
 
 .fade-in {
-  opacity: 1;
-  transform: translateY(0);
-  transition:
-    opacity 0.64s var(--ease-in),
-    transform 0.64s var(--fade-in);
+	opacity: 1;
+	transform: translateY(0);
+	transition:
+		opacity 0.64s var(--ease-in),
+		transform 0.64s var(--fade-in);
 }
 
 @starting-style {
-  .fade-in {
-    opacity: 0;
-    transform: translateY(2rem);
-  }
+	.fade-in {
+		opacity: 0;
+		transform: translateY(2rem);
+	}
 }

@@ -1,0 +1,92 @@
+:root {
+	--shadow-sm:
+		1px 2px 2px 0px hsla(0, 0, 100, 0.02) inset,
+		1px 2px 2px 0px hsla(0, 0, 0, 0.16),
+		-1px 0px 2px 0px hsla(0, 0, 0, 0.16);
+}
+
+.shadow-sm {
+	box-shadow: var(--shadow-sm);
+}
+
+/* Line */
+/* Black */
+.line-black-2 {
+	box-shadow: 0px 0px 0px 1px var(--black-2) inset;
+}
+.line-black-4 {
+	box-shadow: 0px 0px 0px 1px var(--black-4) inset;
+}
+.line-black-8 {
+	box-shadow: 0px 0px 0px 1px var(--black-8) inset;
+}
+.line-black-12 {
+	box-shadow: 0px 0px 0px 1px var(--black-12) inset;
+}
+.line-black-16 {
+	box-shadow: 0px 0px 0px 1px var(--black-16) inset;
+}
+.line-black-20 {
+	box-shadow: 0px 0px 0px 1px var(--black-20) inset;
+}
+
+/* Black hovering */
+.hover\:line-black-2:hover {
+	box-shadow: 0px 0px 0px 1px var(--black-2) inset;
+}
+.hover\:line-black-4:hover {
+	box-shadow: 0px 0px 0px 1px var(--black-4) inset;
+}
+.hover\:line-black-8:hover {
+	box-shadow: 0px 0px 0px 1px var(--black-8) inset;
+}
+.hover\:line-black-12:hover {
+	box-shadow: 0px 0px 0px 1px var(--black-12) inset;
+}
+.hover\:line-black-16:hover {
+	box-shadow: 0px 0px 0px 1px var(--black-16) inset;
+}
+.hover\:line-black-20:hover {
+	box-shadow: 0px 0px 0px 1px var(--black-20) inset;
+}
+
+/* Line */
+/* White */
+.line-white-100 {
+	box-shadow: 0px 0px 0px 1px var(--white-100) inset;
+}
+.line-white-96 {
+	box-shadow: 0px 0px 0px 1px var(--white-96) inset;
+}
+.line-white-88 {
+	box-shadow: 0px 0px 0px 1px var(--white-88) inset;
+}
+.line-white-80 {
+	box-shadow: 0px 0px 0px 1px var(--white-80) inset;
+}
+.line-white-72 {
+	box-shadow: 0px 0px 0px 1px var(--white-72) inset;
+}
+.line-white-64 {
+	box-shadow: 0px 0px 0px 1px var(--white-64) inset;
+}
+
+/* White hovering */
+.hover\:line-white-100:hover {
+	box-shadow: 0px 0px 0px 1px var(--white-100) inset;
+}
+.hover\:line-white-96:hover {
+	box-shadow: 0px 0px 0px 1px var(--white-96) inset;
+}
+.hover\:line-white-88:hover {
+	box-shadow: 0px 0px 0px 1px var(--white-88) inset;
+}
+.hover\:line-white-80:hover {
+	box-shadow: 0px 0px 0px 1px var(--white-80) inset;
+}
+.hover\:line-white-72:hover {
+	box-shadow: 0px 0px 0px 1px var(--white-72) inset;
+}
+.hover\:line-white-64:hover {
+	box-shadow: 0px 0px 0px 1px var(--white-64) inset;
+}

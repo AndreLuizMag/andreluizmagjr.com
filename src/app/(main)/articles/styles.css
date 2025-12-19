@@ -1,0 +1,12 @@
+.page-articles {
+	.article-card:hover {
+		.icon,
+		.title {
+			color: var(--white-100);
+		}
+
+		.excerpt {
+			color: var(--white-88);
+		}
+	}
+}
