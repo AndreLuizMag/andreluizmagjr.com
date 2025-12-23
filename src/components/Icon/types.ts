@@ -1,6 +1,12 @@
 import type { SVGAttributes } from "react";
 
-export type IconName = "Github" | "Linkedin" | "Mastodon";
+export type IconName =
+	| "Github"
+	| "House"
+	| "Linkedin"
+	| "Fediverse"
+	| "Mastodon"
+	| "Newspaper";
 
 export type IconProps = {
 	name: string;
