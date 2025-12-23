@@ -14,7 +14,7 @@ const MainLayout = ({
 }>) => {
 	return (
 		<body
-			className={`${inter.variable} ds-flex flow-row-nw justify-start align-stretch gap-md p-md`}
+			className={`${inter.variable} ds-flex flow-row-nw lg:flow-col-nw justify-start align-stretch gap-md sm:gap-xs p-md sm:p-xs`}
 		>
 			{children}
 			<Header />

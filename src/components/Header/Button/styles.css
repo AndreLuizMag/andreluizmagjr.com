@@ -13,3 +13,17 @@
 		opacity: 1;
 	}
 }
+
+@media (max-width: 64rem) {
+	.header-button {
+		.label {
+			top: 0%;
+			left: 50%;
+			transform: translate(-50%, 0);
+		}
+
+		&:has(.button:hover) .label {
+			transform: translate(-50%, -1.75rem);
+		}
+	}
+}

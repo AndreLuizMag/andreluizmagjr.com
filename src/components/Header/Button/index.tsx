@@ -22,7 +22,7 @@ export const Button = ({
 		<div className="header-button ps-relative">
 			<label
 				htmlFor={id}
-				className="ps-absolute label p-block-2xs p-inline-xs font-size-sm line-height-none color-white-100 radius-xs bg-black-4 line-black-12 property-all duration-normal ease-in-out"
+				className="label ps-absolute width-fit p-block-2xs p-inline-xs font-size-sm line-height-none color-white-100 radius-xs bg-black-4 line-black-12 property-all duration-normal ease-in-out"
 			>
 				{label}
 			</label>
