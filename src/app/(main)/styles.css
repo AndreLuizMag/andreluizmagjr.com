@@ -1,0 +1,14 @@
+main {
+  flex-basis: 0;
+  flex-grow: 1;
+  flex-shrink: 1;
+  border-radius: 1rem;
+  box-shadow: var(--shadow-sm);
+}
+
+@media (max-width: 64rem) {
+  main {
+    max-height: calc(100vh - 56px);
+    overflow: auto;
+  }
+}
