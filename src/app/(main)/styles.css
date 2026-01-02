@@ -7,8 +7,10 @@ main {
 }
 
 @media (max-width: 64rem) {
+  body{
+    max-height: 100dvh;
+  }
   main {
-    max-height: calc(100dvh - 56px);
     overflow: auto;
   }
 }
