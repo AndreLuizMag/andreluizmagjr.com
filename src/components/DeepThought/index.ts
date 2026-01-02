@@ -1,0 +1,1 @@
+export { initConsoleEasterEgg } from "./random";
