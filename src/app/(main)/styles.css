@@ -8,7 +8,7 @@ main {
 
 @media (max-width: 64rem) {
   main {
-    max-height: calc(100vh - 56px);
+    max-height: calc(100dvh - 56px);
     overflow: auto;
   }
 }
