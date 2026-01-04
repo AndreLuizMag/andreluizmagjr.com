@@ -1,6 +1,8 @@
 import { createReader } from "@keystatic/core/reader";
 import keystaticConfig from "../../../../keystatic.config";
 import "./styles.css";
+// import Link from "next/link";
+// import { Icon } from "@/components/Icon";
 
 const reader = createReader(process.cwd(), keystaticConfig);
 
@@ -15,46 +17,46 @@ const tagsMap = new Map(allTags.map((t) => [t.slug, t.entry]));
 
 // Mapear artigos com tipos corretos
 const _articlesWithRelations = articles.map((article) => {
-	// Filtrar nulls e buscar dados
-	const categories = (article.entry.category || [])
-		.filter((slug): slug is string => slug !== null) // Type guard
-		.map((slug) => {
-			const cat = categoriesMap.get(slug);
-			return cat ? { slug, ...cat } : null;
-		})
-		.filter((cat): cat is NonNullable<typeof cat> => cat !== null);
+  // Filtrar nulls e buscar dados
+  const categories = (article.entry.category || [])
+    .filter((slug): slug is string => slug !== null) // Type guard
+    .map((slug) => {
+      const cat = categoriesMap.get(slug);
+      return cat ? { slug, ...cat } : null;
+    })
+    .filter((cat): cat is NonNullable<typeof cat> => cat !== null);
 
-	const tags = (article.entry.tags || [])
-		.filter((slug): slug is string => slug !== null) // Type guard
-		.map((slug) => {
-			const tag = tagsMap.get(slug);
-			return tag ? { slug, ...tag } : null;
-		})
-		.filter((tag): tag is NonNullable<typeof tag> => tag !== null);
+  const tags = (article.entry.tags || [])
+    .filter((slug): slug is string => slug !== null) // Type guard
+    .map((slug) => {
+      const tag = tagsMap.get(slug);
+      return tag ? { slug, ...tag } : null;
+    })
+    .filter((tag): tag is NonNullable<typeof tag> => tag !== null);
 
-	return {
-		...article,
-		categories,
-		tags,
-	};
+  return {
+    ...article,
+    categories,
+    tags,
+  };
 });
 
 export default async function Page() {
-	return (
-		<main className="page-articles p-block-9xl">
-			<section className="fade-in">
-				<div className="container-sm ds-flex flow-col-nw gap-3xl">
-					<div>
-						<h1 className="mb-xs">Articles</h1>
-						<p>Read some articles</p>
-					</div>
-					<span className="color-white-64">
-						You can see the articles here soon
-					</span>
-				</div>
-			</section>
-		</main>
-	);
+  return (
+    <main className="page-articles p-block-9xl">
+      <section className="fade-in">
+        <div className="container-sm ds-flex flow-col-nw gap-3xl">
+          <div>
+            <h1 className="mb-xs">Articles</h1>
+            <p>Read some articles</p>
+          </div>
+          <span className="color-white-64">
+            You can see the articles here soon
+          </span>
+        </div>
+      </section>
+    </main>
+  );
 }
 
 // <ul className="list-style-none p-0 ds-grid grid-tpl-col-2 gap-3xl md:gap-md">
