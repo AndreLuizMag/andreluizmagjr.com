@@ -65,7 +65,7 @@ export default async function Article({
 
 	return (
 		<main className="page-article p-block-9xl">
-			<div className="container-sm ds-flex-start flow-col-nw gap-3xl">
+			<div className="container-sm ds-flex-start flow-col-nw gap-3xl fade-in">
 				<div className="width-fill ds-flex flow-col-nw gap-xs">
 					<div className="ds-flex flow-row-nw justify-between align-center p-inline-md font-size-sm color-white-64">
 						{categories.map((category) => (

@@ -1,11 +1,12 @@
 import { site } from "@config/site";
+import type { IconName } from "@/components/Icon";
 
 export type NavigationType = {
 	id: string;
 	label: string;
 	href: string;
 	description?: string;
-	iconName?: string;
+	iconName: IconName;
 	external?: boolean;
 	disabled?: boolean;
 	badge?: string;

@@ -1,0 +1,29 @@
+.header-button {
+	.label {
+		top: 50%;
+		right: 75%;
+		word-break: keep-all;
+		white-space: pre;
+		transform: translate(0, -50%);
+		opacity: 0;
+	}
+
+	&:has(.button:hover) .label {
+		transform: translate(-1rem, -50%);
+		opacity: 1;
+	}
+}
+
+@media (max-width: 64rem) {
+	.header-button {
+		.label {
+			top: 0%;
+			left: 50%;
+			transform: translate(-50%, 0);
+		}
+
+		&:has(.button:hover) .label {
+			transform: translate(-50%, -1.75rem);
+		}
+	}
+}
