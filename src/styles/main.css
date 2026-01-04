@@ -3,18 +3,18 @@
 @import "./shadow.css";
 
 :root {
-    --heading-color: var(--white-100);
-    --text-color: var(--white-96);
+	--heading-color: var(--white-100);
+	--text-color: var(--white-96);
 }
 
 body {
-    font-family: var(--font-inter);
-    background-color: var(--black-2);
-    width: 100vw;
-    min-height: 100vh;
+	font-family: var(--font-inter);
+	background-color: var(--black-2);
+	width: 100vw;
+	min-height: 100vh;
 }
 
 main {
-    background-color: var(--black-8);
-    overflow: auto;
+	background-color: var(--black-8);
+	overflow: auto;
 }

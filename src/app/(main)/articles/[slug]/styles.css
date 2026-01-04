@@ -1,14 +1,14 @@
 :root {
-    --heading-line-height: 1.8;
-    --text-color: var(--white-88);
+	--heading-line-height: 1.8;
+	--text-color: var(--white-88);
 }
 
 .page-article {
-    .article-highlight {
-        height: 256px;
-    }
+	.article-highlight {
+		height: 256px;
+	}
 }
 
 p {
-    margin-bottom: 1.5rem;
+	margin-bottom: 1.5rem;
 }
