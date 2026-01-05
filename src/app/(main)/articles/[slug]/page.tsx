@@ -8,6 +8,14 @@ import keystaticConfig from "../../../../../keystatic.config";
 
 const reader = createReader(process.cwd(), keystaticConfig);
 
+export async function generateStaticParams() {
+	const posts = await reader.collections.posts.all();
+
+	return posts.map((post) => ({
+		slug: post.slug,
+	}));
+}
+
 export default async function Article({
 	params,
 }: {
