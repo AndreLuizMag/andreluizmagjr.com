@@ -1,6 +1,7 @@
 @import "./color.css";
 @import "./animation.css";
 @import "./shadow.css";
+@import "./scrollbar.css";
 
 :root {
 	--heading-color: var(--white-100);
@@ -15,6 +16,6 @@ body {
 }
 
 main {
-	background-color: var(--black-8);
-	overflow: auto;
+	/*background-color: var(--black-8);
+	overflow: auto;*/
 }
