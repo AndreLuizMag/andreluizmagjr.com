@@ -1,33 +1,32 @@
 .main-scroll {
-  max-height: calc(100dvh - 32px);
+	max-height: calc(100dvh - 32px);
 
-  .content {
+	.content {
+		&::-webkit-scrollbar {
+			width: 0.5rem;
+			height: 0.5rem;
+			background-color: transparent;
+		}
 
-    &::-webkit-scrollbar {
-      width: 0.5rem;
-      height: 0.5rem;
-      background-color: transparent;
-    }
+		&::-webkit-scrollbar-track {
+			border: 0;
+			background-color: var(--black-8);
+			box-shadow: none;
+		}
 
-    &::-webkit-scrollbar-track {
-      border: 0;
-      background-color: var(--black-8);
-      box-shadow: none;
-    }
+		&::-webkit-scrollbar-thumb {
+			border-radius: 1rem;
+			background-color: var(--black-12);
+		}
 
-    &::-webkit-scrollbar-thumb {
-      border-radius: 1rem;
-      background-color: var(--black-12);
-    }
-
-    &::-webkit-scrollbar-thumb:hover {
-      background-color: var(--black-20);
-    }
-  }
+		&::-webkit-scrollbar-thumb:hover {
+			background-color: var(--black-20);
+		}
+	}
 }
 
 @media (max-width: 64rem) {
-  .content-scrolled {
-    max-height: calc(100dvh - 56px);
-  }
+	.content-scrolled {
+		max-height: calc(100dvh - 56px);
+	}
 }

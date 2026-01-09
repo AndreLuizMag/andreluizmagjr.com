@@ -1,20 +1,18 @@
+import { MainScroll } from "@component/MainScroll";
 import type { ReactNode } from "react";
 import { Header } from "@/components/Header";
-import { MainScroll} from '@component/MainScroll'
 
 const MainLayout = ({
-  children,
+	children,
 }: Readonly<{
-  children: ReactNode;
+	children: ReactNode;
 }>) => {
-  return (
-    <>
-      <MainScroll>
-        {children}
-      </MainScroll>
-      <Header />
-    </>
-  );
+	return (
+		<>
+			<MainScroll>{children}</MainScroll>
+			<Header />
+		</>
+	);
 };
 
 export default MainLayout;
