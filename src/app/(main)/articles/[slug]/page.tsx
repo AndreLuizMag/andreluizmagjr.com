@@ -8,6 +8,14 @@ import keystaticConfig from "../../../../../keystatic.config";
 
 const reader = createReader(process.cwd(), keystaticConfig);
 
+export async function generateStaticParams() {
+	const posts = await reader.collections.posts.all();
+
+	return posts.map((post) => ({
+		slug: post.slug,
+	}));
+}
+
 export default async function Article({
 	params,
 }: {
@@ -65,7 +73,7 @@ export default async function Article({
 
 	return (
 		<main className="page-article p-block-9xl">
-			<div className="container-sm ds-flex-start flow-col-nw gap-3xl">
+			<div className="container-sm ds-flex-start flow-col-nw gap-3xl fade-in">
 				<div className="width-fill ds-flex flow-col-nw gap-xs">
 					<div className="ds-flex flow-row-nw justify-between align-center p-inline-md font-size-sm color-white-64">
 						{categories.map((category) => (
@@ -75,11 +83,15 @@ export default async function Article({
 						<span>{publishedAt}</span>
 					</div>
 					<div className="article-highlight width-fill ds-flex-center radius-md bg-black-12 shadow-sm">
-						<Icon name="Fediverse" size={128} className="color-white-100" />
+						<Icon
+							name={article.iconHighlight}
+							size={128}
+							className="color-white-100"
+						/>
 					</div>
 				</div>
 				<div className="p-inline-md">
-					<h1 className="font-size-3xl mb-md">{article.title}</h1>
+					<h1>{article.title}</h1>
 					<div>
 						{/*<h1>{article.title}</h1>*/}
 						{Markdoc.renderers.react(renderable, React)}

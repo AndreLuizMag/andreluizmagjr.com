@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import { useEffect, type ReactNode } from "react";
 import { Header } from "@/components/Header";
 import { initConsoleEasterEgg } from "@/components/DeepThought";
+import "./styles.css";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -19,7 +20,7 @@ const MainLayout = ({
   }, []);
   return (
     <body
-      className={`${inter.variable} ds-flex flow-row-nw justify-start align-stretch p-md`}
+      className={`${inter.variable} ds-flex flow-row-nw lg:flow-col-nw justify-start align-stretch gap-md sm:gap-xs p-md sm:p-x`}
     >
       {children}
 
