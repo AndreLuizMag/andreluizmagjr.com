@@ -1,3 +1,7 @@
+body{
+  padding: 0!important;
+}
+
 .css-u68w3b {
-	width: 80vw;
+	width: calc(100vw - var(--primary-pane-width));
 }
