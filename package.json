@@ -19,7 +19,8 @@
 		"helix-css": "^1.0.3",
 		"next": "16.0.7",
 		"react": "19.2.1",
-		"react-dom": "19.2.1"
+		"react-dom": "19.2.1",
+		"sugar-high": "^0.9.5"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.2.0",
