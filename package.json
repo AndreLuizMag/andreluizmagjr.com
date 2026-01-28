@@ -16,7 +16,7 @@
 		"@keystatic/next": "^5.0.4",
 		"@markdoc/markdoc": "^0.5.4",
 		"helix-color": "^0.7.1",
-		"helix-css": "^1.0.1",
+		"helix-css": "^1.0.3",
 		"next": "16.0.7",
 		"react": "19.2.1",
 		"react-dom": "19.2.1"
