@@ -1,5 +1,6 @@
-body{
-  padding: 0!important;
+body {
+	/* biome-ignore lint: necessary to override third-party library styles */
+	padding: 0 !important;
 }
 
 .css-u68w3b {
