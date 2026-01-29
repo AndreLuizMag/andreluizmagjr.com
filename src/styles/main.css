@@ -2,6 +2,7 @@
 @import "./animation.css";
 @import "./shadow.css";
 @import "./scrollbar.css";
+@import "./sugar-high.css";
 
 :root {
 	--heading-color: var(--white-100);

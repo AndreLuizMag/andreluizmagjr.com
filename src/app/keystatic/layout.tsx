@@ -1,5 +1,5 @@
 import KeystaticApp from "./keystatic";
-import './styles.css'
+import "./styles.css";
 
 export default function Layout() {
 	return (

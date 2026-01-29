@@ -4,8 +4,8 @@ import React from "react";
 import "./styles.css";
 import { notFound } from "next/navigation";
 import { Icon } from "@/components/Icon";
-import keystaticConfig from "../../../../../keystatic.config";
 import { markdocConfig } from "@/lib/markdoc-config";
+import keystaticConfig from "../../../../../keystatic.config";
 
 const reader = createReader(process.cwd(), keystaticConfig);
 

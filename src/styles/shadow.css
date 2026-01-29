@@ -1,12 +1,18 @@
 :root {
 	--shadow-sm:
 		1px 2px 2px 0px hsla(0, 0, 100, 0.02) inset,
-		1px 2px 2px 0px hsla(0, 0, 0, 0.16),
-		-1px 0px 2px 0px hsla(0, 0, 0, 0.16);
+		1px 2px 2px 0px hsla(0, 0, 0, 0.16), -1px 0px 2px 0px hsla(0, 0, 0, 0.16);
+	--inset-shadow-sm:
+		-1px 0 2px 0 rgba(0, 0, 0, 0.16) inset,
+		1px 2px 2px 0 rgba(0, 0, 0, 0.16) inset,
+		1px 2px 2px 0 rgba(255, 255, 255, 0.02);
 }
 
 .shadow-sm {
 	box-shadow: var(--shadow-sm);
+}
+.inset-shadow-sm {
+	box-shadow: var(--inset-shadow-sm);
 }
 
 /* Line */

@@ -1,0 +1,39 @@
+:root {
+	--sh-class: var(--white-64);
+	--sh-identifier: var(--white-64);
+	--sh-sign: var(--white-64);
+	--sh-property: var(--white-64);
+	--sh-entity: var(--white-64);
+	--sh-jsxliterals: var(--white-64);
+	--sh-string: var(--white-64);
+	--sh-keyword: var(--white-64);
+	--sh-comment: var(--white-64);
+}
+
+pre {
+	background: var(--black-4);
+	padding: 1rem;
+	border-radius: 1rem;
+	overflow-x: auto;
+	margin-block: 1rem 1.5rem;
+	box-shadow: var(--inset-shadow-sm);
+}
+
+pre code {
+	font-family: "Fira Code", "Consolas", monospace;
+	font-size: 0.9rem;
+	line-height: 1.6;
+	color: var(--white-64);
+}
+
+pre[data-language="typescript"] {
+	--sh-class: var(--blue-300);
+	--sh-identifier: var(--white-100);
+	--sh-sign: var(--white-64);
+	--sh-property: var(--red-300);
+	--sh-entity: var(--red-300);
+	--sh-jsxliterals: var(--red-300);
+	--sh-string: var(--red-300);
+	--sh-keyword: var(--purple-300);
+	--sh-comment: var(--red-300);
+}
