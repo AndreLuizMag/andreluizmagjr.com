@@ -51,9 +51,6 @@ importers:
       babel-plugin-react-compiler:
         specifier: 1.0.0
         version: 1.0.0
-      sugar-high:
-        specifier: ^0.9.5
-        version: 0.9.5
       typescript:
         specifier: ^5
         version: 5.9.3
