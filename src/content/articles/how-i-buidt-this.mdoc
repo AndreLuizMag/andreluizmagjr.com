@@ -1,0 +1,159 @@
+---
+title: How I buidt this
+category:
+  - personal
+tags: []
+iconHighlight: WindowMaximize
+colorHighlight: orange
+publishedAt: 2026-01-29
+---
+I want to talk about how I built this website. I see this site as my playground, a place where I can experiment with concepts and try out new ideas. Beyond that, it's also my portfolio. As such, I'll be continuously updating it, testing out cool concepts I discover along the way.
+
+## Architecture
+
+While working on projects with Next.js and TypeScript, I've tested and applied several different architectures in real-world scenarios. I plan to write a post diving deep into all the architectures I've used and why I chose this one for this website.
+
+Currently, I'm using an architecture that works well for me in most of the projects I build, with a few simple rules that I'll describe here:
+
+```
+📁 src/
+│
+├── 📁 app/
+│   ├── 📁 (blank)/
+│   ├── 📁 (main)/
+│   │   ├── 📁 (homepage)/
+│   │   │   ├──📄 page.tsx
+│   │   │   └──📄 style.css
+│   │   └──📄 layout.tsx
+│   ├──📄 layout.tsx
+│   └──📄 not-found.tsx
+│
+├── 📁 components/
+│   └── 📁 Header/
+│
+├── 📁 config/
+│   ├──📄 navigation.ts
+│   ├──📄 route.ts
+│   └──📄 site.ts
+│
+├── 📁 contexts/
+│
+├── 📁 hooks/
+│
+├── 📁 libs/
+│
+├── 📁 styles/
+│   ├──📄 animation.ts
+│   ├──📄 color.ts
+│   └──📄 main.ts
+│
+├── 📁 types/
+│
+└── 📁 utils/
+```
+
+### App
+
+As is common nowadays, the app/ directory refers to [Next.js App Router](https://nextjs.org/docs/app), which is essentially a file-system based routing system. However, I do something different by creating directories inside app/.
+
+The main one is (main), which is a route group for the main pages, where all the styling and spirit of the project are defined. On the other hand, (blank) is the opposite: a route group with no styling whatsoever, where I typically store landing pages with no connection to the rest of the website.
+
+Another difference is that I use Next.js route groups again to create (homepage). I do this because the homepage typically has isolated styling files and components that aren't reused in the rest of the project. So I group everything together to keep the files from being scattered inside (main).
+
+Let me now show an example of the app/ directory, but filled with more directories and files to demonstrate how effective this organization is in both small and large projects:
+
+```bash
+📁 src/
+│
+├── 📁 app/
+│   ├── 📁 (blank)/
+│   │   ├── 📁 link-three/
+│   │   │   ├── 📁 card/
+│   │   │   │   ├──📄 index.tsx
+│   │   │   │   └──📄 style.css
+│   │   │   ├──📄 page.tsx
+│   │   │   └──📄 style.css
+│   │   └── 📁 newsletter/
+│   │   ├── 📁 form/
+│   │   │   ├──📄 index.tsx
+│   │   │   └──📄 style.css
+│   │   ├──📄 page.tsx
+│   │   └──📄 style.css
+│   │
+│   ├── 📁 (main)/
+│   │   ├── 📁 (homepage)/
+│   │   │   ├──📄 page.tsx
+│   │   │   └──📄 styles.css
+│   │   ├── 📁 about/
+│   │   │   ├── 📁 card/
+│   │   │   │   ├──📄 index.tsx
+│   │   │   │   └──📄 style.css
+│   │   │   ├── 📁 grid/
+│   │   │   │   ├──📄 index.tsx
+│   │   │   │   └──📄 style.css
+│   │   │   ├──📄 page.tsx
+│   │   │   └──📄 styles.css
+│   │   ├── 📁 articles/
+│   │   │   ├──📄 page.tsx
+│   │   │   └──📄 styles.css
+│   │   ├── 📁 resume/
+│   │   │   ├──📄 page.tsx
+│   │   │   └──📄 styles.css
+│   │   └──📄 layout.tsx
+│   ├──📄 layout.tsx
+│   └──📄 not-found.tsx
+```
+
+### Config
+
+This directory is something new I've been using, and so far, every time I've applied it, I've had great results. It's basically where I store relevant static information about the website. In this example, split into 3 files:
+
+- navigation: responsible for exporting groups of navigation links, for example:
+
+```typescript
+export type NavigationType = {}
+export const footer: NavigationType[] = []
+export const header: NavigationType[] = []
+export const social: NavigationType[] = []
+```
+
+- routes: All internal routes of the website, unified in one place, allowing for standardization across the project.
+- site: The website's root configuration, relevant information that's repeated throughout.\
+
+### Other Directories
+
+The other directories don't have much mystery to them—they're common when creating a Next.js project, so I'll just briefly describe what each one does:
+
+- components: Global project components that are reused in multiple places.
+- contexts: A set of [React Contexts](https://react.dev/reference/react/createContext) used in the project.
+- hooks: Functions that are reused across different parts of the project.
+- libs: Configuration for libraries installed in the project.
+- styles: Where I store CSS or SCSS files.
+- types: Types that are reused throughout the project.
+- utils: Helper functions—simple functions with quick returns.
+
+## Technologies
+
+The project is built with React 19, Next.js 16, and TypeScript 5. I made this choice because I'm currently specializing in these technologies, and this project is a way for me to improve and showcase what I've been learning.
+
+### Why CSS?
+
+An unconventional decision I made was choosing CSS instead of Sass. Typically, in more robust projects, I prefer to use [Sass](https://sass-lang.com/) as an alternative for its ease in creating mixins and functions, as well as its more robust variables. However, with recent advances in CSS, I'm excited to work with pure CSS to explore these new features.
+
+I also decided to explore technologies I haven't worked with yet and see this project as an opportunity to present and explore them:
+
+### Keystatic
+
+[Keystatic](https://keystatic.com/) is a very interesting open-source project that makes it easy to create a blog in Next.js with markdown files and full GitHub integration.
+
+After integrating the library into this project, I noticed how easy Keystatic makes developing a blog. With very well-written [documentation](https://keystatic.com/docs/introduction), I was able to complete the installation and make my first post in just a few steps. Then, I continued diving deeper into the documentation to make small modifications with Collections, and that's how I created the category and tag system I implemented. Keystatic provided me with a wide range of customization options, which is a huge plus for the library, allowing me to customize the posting system to my liking.
+
+### Umami
+
+I try to follow the [DeGoogle](https://en.wikipedia.org/wiki/DeGoogle) movement, and while looking for a good Google Analytics alternative, I found [Umami](https://umami.is/), a very comprehensive open-source web analytics project that shows it's possible to collect browsing data without being invasive to users.
+
+Unlike other analytics tools, Umami collects data without requiring cookies, while maintaining complete user anonymity. It even offers administrators the option to self-host.
+
+## Future Plans
+
+It's been really fun starting to develop this website and writing about it in this article. As I explained, this site will be constantly updated with new ideas, content, and even easter eggs I've already thought of. I hope this was informative and well-explained content about this project! More updates coming soon.
