@@ -3,7 +3,7 @@ import { CodeBlock } from "@component/CodeBlock";
 export const markdocConfig = {
 	nodes: {
 		fence: {
-			render: CodeBlock,
+			render: 'CodeBlock',
 			attributes: {
 				language: {
 					type: String,
