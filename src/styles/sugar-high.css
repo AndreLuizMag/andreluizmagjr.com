@@ -31,9 +31,9 @@ pre[data-language="typescript"] {
 	--sh-identifier: var(--white-100);
 	--sh-sign: var(--white-64);
 	--sh-property: var(--red-300);
-	--sh-entity: var(--red-300);
-	--sh-jsxliterals: var(--red-300);
-	--sh-string: var(--red-300);
+	--sh-entity: var(--blue-300);
+	--sh-jsxliterals: var(--white-100);
+	--sh-string: var(--green-300);
 	--sh-keyword: var(--purple-300);
 	--sh-comment: var(--red-300);
 }
