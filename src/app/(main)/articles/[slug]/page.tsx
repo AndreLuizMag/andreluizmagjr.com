@@ -5,6 +5,7 @@ import "./styles.css";
 import { notFound } from "next/navigation";
 import { Icon } from "@/components/Icon";
 import keystaticConfig from "../../../../../keystatic.config";
+import { markdocConfig } from "@/lib/markdoc-config";
 
 const reader = createReader(process.cwd(), keystaticConfig);
 
@@ -65,7 +66,8 @@ export default async function Article({
 		console.error(errors);
 		throw new Error("Invalid content");
 	}
-	const renderable = Markdoc.transform(node);
+	// const renderable = Markdoc.transform(node);
+	const renderable = Markdoc.transform(node, markdocConfig);
 
 	const publishedAt = article.publishedAt
 		? article.publishedAt.replace(/-/g, "/")
