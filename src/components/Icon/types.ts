@@ -1,16 +1,19 @@
-import type { SVGAttributes } from "react";
+import type { icons } from "./icons";
 
-export type IconName =
-	| "Github"
-	| "House"
-	| "Linkedin"
-	| "Fediverse"
-	| "Mastodon"
-  | "Newspaper"
-  | "WindowMaximize";
+export type IconType = {
+  id: string,
+  displayName: string,
+  svg: string;
+}
 
-export type IconProps = {
-	name: string;
-	size?: number;
-	title?: string;
-} & Omit<SVGAttributes<SVGSVGElement>, "width" | "height" | "viewBox">;
+export type IconRegistry = (typeof icons)[number];
+
+export type IconName = IconRegistry["displayName"];
+
+export interface IconProps {
+  name: IconName;
+  width?: number;
+  height?: number;
+  className?: string;
+  color?: string;
+}

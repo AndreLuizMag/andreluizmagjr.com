@@ -7,8 +7,65 @@ import { Icon } from "@/components/Icon";
 import { markdocConfig } from "@/lib/markdoc-config";
 import { CodeBlock } from "@/components/CodeBlock";
 import keystaticConfig from "../../../../../keystatic.config";
+import type { Metadata } from "next";
 
 const reader = createReader(process.cwd(), keystaticConfig);
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const article = await reader.collections.posts.read(slug);
+
+  if (!article) {
+    return {
+      title: "Artigo não encontrado",
+    };
+  }
+
+  // URL base do seu site (configure conforme seu domínio)
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://seusite.com";
+  const articleUrl = `${baseUrl}/articles/${slug}`;
+
+  return {
+    title: article.title,
+    description: article.excerpt,
+
+    // Open Graph (Facebook, LinkedIn, etc)
+    openGraph: {
+      title: article.title,
+      description: article.excerpt,
+      url: articleUrl,
+      type: "article",
+      publishedTime: article.publishedAt,
+      // Se você tiver uma imagem de capa, adicione aqui:
+      // images: [
+      //   {
+      //     url: `${baseUrl}${article.coverImage}`,
+      //     width: 1200,
+      //     height: 630,
+      //     alt: article.title,
+      //   },
+      // ],
+    },
+
+    // Twitter
+    twitter: {
+      card: "summary_large_image",
+      title: article.title,
+      description: article.excerpt,
+      // images: [`${baseUrl}${article.coverImage}`],
+    },
+
+    // Outras metadata úteis
+    keywords: article.tags?.join(", "),
+    alternates: {
+      canonical: articleUrl,
+    },
+  };
+}
 
 export async function generateStaticParams() {
   const posts = await reader.collections.posts.all();

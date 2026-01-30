@@ -7,11 +7,11 @@ export const Header = () => {
 		<header className="header p-xs radius-md">
 			<nav className="height-fill ds-flex flow-col-nw lg:flow-row-rev-nw justify-between align-center">
 				<div className="ds-flex-center flow-col-nw lg:flow-row-nw gap-xs">
-					<Button href="/" id="homepage" icon="House" label="Homepage" />
+					<Button href="/" id="homepage" icon="house" label="Homepage" />
 					<Button
 						href="/articles"
 						id="articles"
-						icon="Newspaper"
+						icon="newspaper"
 						label="Articles"
 					/>
 				</div>

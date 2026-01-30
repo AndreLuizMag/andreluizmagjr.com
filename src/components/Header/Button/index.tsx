@@ -33,7 +33,7 @@ export const Button = ({
 				rel={openInNewTab ? "noopener noreferrer" : undefined}
 				target={openInNewTab ? "_blank" : "_self"}
 			>
-				<Icon name={icon} size={24} className="ps-relative z-1" />
+				<Icon name={icon} width={24} height={24} className="ps-relative z-1" />
 			</Link>
 		</div>
 	);

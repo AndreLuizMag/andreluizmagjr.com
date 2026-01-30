@@ -1,4 +1,5 @@
 import { collection, config, fields } from "@keystatic/core";
+import type {IconName} from '@component/Icon/types'
 
 export default config({
 	storage: {
