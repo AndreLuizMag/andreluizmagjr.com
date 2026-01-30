@@ -55,7 +55,7 @@ export default async function Page() {
 							<li key={article.slug}>
 								<Link
 									href={`/articles/${article.slug}`}
-									className="article-card ds-flex flow-col-nw gap-3xl width-fill text-decoration-none cursor-pointer p-md line-black-16 hover:line-black-20 radius-md property-shadow duration-fast ease-out"
+									className="article-card ds-flex flow-col-nw gap-3xl width-fill text-decoration-none cursor-pointer p-md line-black-16  hover:line-black-20 radius-md property-shadow duration-fast ease-out"
 								>
 									<Icon
 										name={article.entry.iconHighlight}

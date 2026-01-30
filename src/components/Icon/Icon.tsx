@@ -9,7 +9,6 @@ const Icon = ({
 	width = 32,
 	height = 32,
 	className = "",
-	color = "currentColor",
 }: IconProps) => {
 	const iconData = useMemo(() => {
 		return icons.find((icon) => icon.displayName === name);
@@ -58,7 +57,6 @@ const Icon = ({
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
 			aria-label={iconData.displayName}
-			style={{ color }}
 			dangerouslySetInnerHTML={{ __html: content }}
 		/>
 	);
