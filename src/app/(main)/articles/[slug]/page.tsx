@@ -2,186 +2,186 @@ import { createReader } from "@keystatic/core/reader";
 import Markdoc from "@markdoc/markdoc";
 import React from "react";
 import "./styles.css";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { CodeBlock } from "@/components/CodeBlock";
 import { Icon } from "@/components/Icon";
 import { markdocConfig } from "@/lib/markdoc-config";
-import { CodeBlock } from "@/components/CodeBlock";
 import keystaticConfig from "../../../../../keystatic.config";
-import type { Metadata } from "next";
 
 const reader = createReader(process.cwd(), keystaticConfig);
 
 export async function generateMetadata({
-  params,
+	params,
 }: {
-  params: { slug: string };
+	params: { slug: string };
 }): Promise<Metadata> {
-  const { slug } = await params;
-  const article = await reader.collections.posts.read(slug);
+	const { slug } = await params;
+	const article = await reader.collections.posts.read(slug);
 
-  if (!article) {
-    return {
-      title: "Artigo não encontrado",
-    };
-  }
+	if (!article) {
+		return {
+			title: "Artigo não encontrado",
+		};
+	}
 
-  // URL base do seu site (configure conforme seu domínio)
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://seusite.com";
-  const articleUrl = `${baseUrl}/articles/${slug}`;
+	// URL base do seu site (configure conforme seu domínio)
+	const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://seusite.com";
+	const articleUrl = `${baseUrl}/articles/${slug}`;
 
-  return {
-    title: article.title,
-    description: article.excerpt,
+	return {
+		title: article.title,
+		description: article.excerpt,
 
-    // Open Graph (Facebook, LinkedIn, etc)
-    openGraph: {
-      title: article.title,
-      description: article.excerpt,
-      url: articleUrl,
-      type: "article",
-      // Se você tiver uma imagem de capa, adicione aqui:
-      // images: [
-      //   {
-      //     url: `${baseUrl}${article.coverImage}`,
-      //     width: 1200,
-      //     height: 630,
-      //     alt: article.title,
-      //   },
-      // ],
-    },
+		// Open Graph (Facebook, LinkedIn, etc)
+		openGraph: {
+			title: article.title,
+			description: article.excerpt,
+			url: articleUrl,
+			type: "article",
+			// Se você tiver uma imagem de capa, adicione aqui:
+			// images: [
+			//   {
+			//     url: `${baseUrl}${article.coverImage}`,
+			//     width: 1200,
+			//     height: 630,
+			//     alt: article.title,
+			//   },
+			// ],
+		},
 
-    // Twitter
-    twitter: {
-      card: "summary_large_image",
-      title: article.title,
-      description: article.excerpt,
-      // images: [`${baseUrl}${article.coverImage}`],
-    },
+		// Twitter
+		twitter: {
+			card: "summary_large_image",
+			title: article.title,
+			description: article.excerpt,
+			// images: [`${baseUrl}${article.coverImage}`],
+		},
 
-    // Outras metadata úteis
-    keywords: article.tags?.join(", "),
-    alternates: {
-      canonical: articleUrl,
-    },
-  };
+		// Outras metadata úteis
+		keywords: article.tags?.join(", "),
+		alternates: {
+			canonical: articleUrl,
+		},
+	};
 }
 
 export async function generateStaticParams() {
-  const posts = await reader.collections.posts.all();
+	const posts = await reader.collections.posts.all();
 
-  return posts.map((post) => ({
-    slug: post.slug,
-  }));
+	return posts.map((post) => ({
+		slug: post.slug,
+	}));
 }
 
 export default async function Article({
-  params,
+	params,
 }: {
-  params: { slug: string };
+	params: { slug: string };
 }) {
-  const { slug } = await params;
-  const article = await reader.collections.posts.read(slug);
+	const { slug } = await params;
+	const article = await reader.collections.posts.read(slug);
 
-  if (!article) {
-    notFound(); // Melhor que retornar div manualmente
-  }
+	if (!article) {
+		notFound(); // Melhor que retornar div manualmente
+	}
 
-  // Buscar conteúdo e dados relacionados em paralelo
-  const [{ node }, tagsData, categoriesData] = await Promise.all([
-    article.content(),
-    // Tags
-    Promise.all(
-      (article.tags || [])
-        .filter((slug): slug is string => slug !== null)
-        .map(async (slug) => {
-          const tag = await reader.collections.tags.read(slug);
-          return tag ? { slug, ...tag } : null;
-        }),
-    ),
-    // Categorias
-    Promise.all(
-      (article.category || [])
-        .filter((slug): slug is string => slug !== null)
-        .map(async (slug) => {
-          const category = await reader.collections.categories.read(slug);
-          return category ? { slug, ...category } : null;
-        }),
-    ),
-  ]);
+	// Buscar conteúdo e dados relacionados em paralelo
+	const [{ node }, tagsData, categoriesData] = await Promise.all([
+		article.content(),
+		// Tags
+		Promise.all(
+			(article.tags || [])
+				.filter((slug): slug is string => slug !== null)
+				.map(async (slug) => {
+					const tag = await reader.collections.tags.read(slug);
+					return tag ? { slug, ...tag } : null;
+				}),
+		),
+		// Categorias
+		Promise.all(
+			(article.category || [])
+				.filter((slug): slug is string => slug !== null)
+				.map(async (slug) => {
+					const category = await reader.collections.categories.read(slug);
+					return category ? { slug, ...category } : null;
+				}),
+		),
+	]);
 
-  // Filtrar nulls
-  const tags = tagsData.filter(
-    (tag): tag is NonNullable<typeof tag> => tag !== null,
-  );
-  const categories = categoriesData.filter(
-    (cat): cat is NonNullable<typeof cat> => cat !== null,
-  );
+	// Filtrar nulls
+	const tags = tagsData.filter(
+		(tag): tag is NonNullable<typeof tag> => tag !== null,
+	);
+	const categories = categoriesData.filter(
+		(cat): cat is NonNullable<typeof cat> => cat !== null,
+	);
 
-  // Validar e transformar o Markdoc
-  const errors = Markdoc.validate(node);
-  if (errors.length) {
-    console.error(errors);
-    throw new Error("Invalid content");
-  }
-  // const renderable = Markdoc.transform(node);
-  const renderable = Markdoc.transform(node, markdocConfig);
+	// Validar e transformar o Markdoc
+	const errors = Markdoc.validate(node);
+	if (errors.length) {
+		console.error(errors);
+		throw new Error("Invalid content");
+	}
+	// const renderable = Markdoc.transform(node);
+	const renderable = Markdoc.transform(node, markdocConfig);
 
-  const publishedAt = article.publishedAt
-    ? article.publishedAt.replace(/-/g, "/")
-    : "";
+	const publishedAt = article.publishedAt
+		? article.publishedAt.replace(/-/g, "/")
+		: "";
 
-  return (
-    <main className="page-article p-block-9xl">
-      <div className="container-sm ds-flex-start flow-col-nw gap-3xl fade-in">
-        <div className="width-fill ds-flex flow-col-nw gap-xs">
-          <div className="ds-flex flow-row-nw justify-between align-center p-inline-md font-size-sm color-white-64">
-            {categories.map((category) => (
-              <span key={category.slug}>{category.name}</span>
-            ))}
+	return (
+		<main className="page-article p-block-9xl">
+			<div className="container-sm ds-flex-start flow-col-nw gap-3xl fade-in">
+				<div className="width-fill ds-flex flow-col-nw gap-xs">
+					<div className="ds-flex flow-row-nw justify-between align-center p-inline-md font-size-sm color-white-64">
+						{categories.map((category) => (
+							<span key={category.slug}>{category.name}</span>
+						))}
 
-            <span>{publishedAt}</span>
-          </div>
-          <div className="article-highlight width-fill ds-flex-center radius-md bg-black-12 shadow-sm">
-            <Icon
-              name={article.iconHighlight}
-              width={128}
-              height={128}
-              className="color-white-100"
-            />
-          </div>
-        </div>
-        <div className="p-inline-md">
-          <h1>{article.title}</h1>
-          <div>
-            {/*<h1>{article.title}</h1>*/}
-            {Markdoc.renderers.react(renderable, React, {
-              components: {
-                CodeBlock, // Mapeie o nome para o componente
-              },
-            })}
-          </div>
-          <div className="pt-3xl ds-flex flow-row-nw justify-between align-center font-size-sm color-white-64">
-            {article.tags && (
-              <div className="ds-flex flow-row gap-3xs">
-                {tags.map((tag) => (
-                  <div
-                    key={tag?.name}
-                    className="line-black-16 p-inline-2xs p-block-4xs radius-3xs"
-                  >
-                    <span
-                      className={`color-${tag?.colorHighlight}-light font-weight-semibold`}
-                    >
-                      #{tag?.name}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            )}
+						<span>{publishedAt}</span>
+					</div>
+					<div className="article-highlight width-fill ds-flex-center radius-md bg-black-12 shadow-sm">
+						<Icon
+							name={article.iconHighlight}
+							width={128}
+							height={128}
+							className="color-white-100"
+						/>
+					</div>
+				</div>
+				<div className="p-inline-md">
+					<h1>{article.title}</h1>
+					<div>
+						{/*<h1>{article.title}</h1>*/}
+						{Markdoc.renderers.react(renderable, React, {
+							components: {
+								CodeBlock, // Mapeie o nome para o componente
+							},
+						})}
+					</div>
+					<div className="pt-3xl ds-flex flow-row-nw justify-between align-center font-size-sm color-white-64">
+						{article.tags && (
+							<div className="ds-flex flow-row gap-3xs">
+								{tags.map((tag) => (
+									<div
+										key={tag?.name}
+										className="line-black-16 p-inline-2xs p-block-4xs radius-3xs"
+									>
+										<span
+											className={`color-${tag?.colorHighlight}-light font-weight-semibold`}
+										>
+											#{tag?.name}
+										</span>
+									</div>
+								))}
+							</div>
+						)}
 
-            <span>{publishedAt}</span>
-          </div>
-        </div>
-      </div>
-    </main>
-  );
+						<span>{publishedAt}</span>
+					</div>
+				</div>
+			</div>
+		</main>
+	);
 }
