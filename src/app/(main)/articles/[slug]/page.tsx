@@ -39,7 +39,6 @@ export async function generateMetadata({
       description: article.excerpt,
       url: articleUrl,
       type: "article",
-      publishedTime: article.publishedAt,
       // Se você tiver uma imagem de capa, adicione aqui:
       // images: [
       //   {
@@ -145,7 +144,8 @@ export default async function Article({
           <div className="article-highlight width-fill ds-flex-center radius-md bg-black-12 shadow-sm">
             <Icon
               name={article.iconHighlight}
-              size={128}
+              width={128}
+              height={128}
               className="color-white-100"
             />
           </div>

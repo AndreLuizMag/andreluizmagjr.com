@@ -11,7 +11,7 @@ export default function NotFound() {
 					href="/"
 					className="ds-flex-center flor-row-nw gap-2xs p-xs font-weight-bold text-decoration-none radius-xs color-white-80 hover:color-white-100 bg-black-12 hover:bg-black-20 hover:line-black-16 duration-normal property-colors ease-out"
 				>
-					<Icon name="House" size={20} />
+					<Icon name="house" width={20} height={20} />
 					Return Home
 				</Link>
 			</main>
