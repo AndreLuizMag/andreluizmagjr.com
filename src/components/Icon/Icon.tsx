@@ -15,7 +15,7 @@ const Icon = ({
 		return icons.find((icon) => icon.displayName === name);
 	}, [name]);
 
-	// Erro falback
+	// Erro fallback
 	if (!iconData) {
 		console.error(`Icon "${name}" not found`);
 		return (
@@ -41,16 +41,13 @@ const Icon = ({
 		);
 	}
 
-	const parser = new DOMParser();
-	const doc = parser.parseFromString(iconData.svg, "image/svg+xml");
-	const svgElement = doc.querySelector("svg");
+	// Extrai viewBox e conteúdo usando regex (funciona no servidor e cliente)
+	const viewBoxMatch = iconData.svg.match(/viewBox="([^"]+)"/);
+	const viewBox = viewBoxMatch ? viewBoxMatch[1] : "0 0 32 32";
 
-	if (!svgElement) {
-		return null;
-	}
-
-	const viewBox = svgElement.getAttribute("viewBox") || "0 0 32 32";
-	const content = svgElement.innerHTML;
+	// Extrai o conteúdo entre as tags <svg>...</svg>
+	const contentMatch = iconData.svg.match(/<svg[^>]*>([\s\S]*)<\/svg>/);
+	const content = contentMatch ? contentMatch[1] : "";
 
 	return (
 		<svg
