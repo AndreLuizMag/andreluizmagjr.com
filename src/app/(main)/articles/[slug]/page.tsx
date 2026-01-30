@@ -105,7 +105,7 @@ export default async function Article({
           </div>
           <div className="pt-3xl ds-flex flow-row-nw justify-between align-center font-size-sm color-white-64">
             {article.tags && (
-              <div>
+              <div className="ds-flex flow-row gap-3xs">
                 {tags.map((tag) => (
                   <div
                     key={tag?.name}

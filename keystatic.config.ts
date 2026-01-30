@@ -7,7 +7,8 @@ export default config({
 	},
 	collections: {
 		posts: collection({
-			label: "Posts",
+      label: "Posts",
+      entryLayout: 'content',
 			slugField: "title",
 			path: "src/content/articles/*",
 			format: { contentField: "content" },
@@ -38,7 +39,15 @@ export default config({
 						label: "Tags",
 						collection: "tags",
 					}),
-					{ label: "Tags" },
+          {
+            label: "Tags",
+            itemLabel: (props) => {
+							if (props.value) {
+								return `Tag: ${props.value}`;
+							}
+							return "Nova tag";
+						},
+          },
 				),
 				iconHighlight: fields.text({
 					label: "Icon highlight",
