@@ -79,7 +79,7 @@ export default async function Page() {
 										<div className="width-fill ds-flex flow-row-nw justify-between align-center">
 											{/* Categorias */}
 											{article.categories.length > 0 && (
-												<div className="category-group line-black-16 p-inline-2xs p-block-4xs radius-3xs">
+												<div className="category-group ds-flex-center line-black-16 p-inline-2xs p-block-4xs radius-3xs">
 													{article.categories.map((cat) => (
 														<span
 															key={cat.slug}
