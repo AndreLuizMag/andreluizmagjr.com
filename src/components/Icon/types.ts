@@ -6,7 +6,8 @@ export type IconName =
 	| "Linkedin"
 	| "Fediverse"
 	| "Mastodon"
-	| "Newspaper";
+  | "Newspaper"
+  | "WindowMaximize";
 
 export type IconProps = {
 	name: string;
