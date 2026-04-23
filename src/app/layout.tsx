@@ -14,11 +14,17 @@ export const metadata: Metadata = {
 const googleSans = Google_Sans_Flex({
 	variable: "--font-google-sans",
 	subsets: ["latin"],
+  display: 'swap',
+  fallback: ['Arial', 'sans-serif'],
+  adjustFontFallback: false,
 });
 
 const googleSansCode = Google_Sans_Code({
 	variable: "--font-google-sans-code",
 	subsets: ["latin"],
+  display: 'swap',
+  fallback: ['Arial', 'sans-serif'],
+  adjustFontFallback: false,
 });
 
 const RootLayout = ({
