@@ -20,7 +20,7 @@ pre {
 }
 
 pre code {
-	font-family: "Fira Code", "Consolas", monospace;
+	font-family: var(--font-google-sans-code);
 	font-size: 0.9rem;
 	line-height: 1.6;
 	color: var(--white-64);

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "helix-css";
 import "helix-color";
 import "../styles/main.css";
-import { Inter } from "next/font/google";
+import { Google_Sans_Flex, Google_Sans_Code } from "next/font/google";
 import Script from "next/script";
 import type { ReactNode } from "react";
 
@@ -11,8 +11,13 @@ export const metadata: Metadata = {
 	description: "My portfolio website",
 };
 
-const inter = Inter({
-	variable: "--font-inter",
+const googleSans = Google_Sans_Flex({
+	variable: "--font-google-sans",
+	subsets: ["latin"],
+});
+
+const googleSansCode = Google_Sans_Code({
+	variable: "--font-google-sans-code",
 	subsets: ["latin"],
 });
 
@@ -31,7 +36,7 @@ const RootLayout = ({
 				/>
 			</head>
 			<body
-				className={`${inter.variable} ds-flex flow-row-nw lg:flow-col-nw justify-start align-stretch gap-md sm:gap-xs p-md sm:p-xs`}
+				className={`${googleSans.variable} ${googleSansCode.variable} ds-flex flow-row-nw lg:flow-col-nw justify-start align-stretch gap-md sm:gap-xs p-md sm:p-xs`}
 			>
 				{children}
 			</body>
