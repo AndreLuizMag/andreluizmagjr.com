@@ -12,24 +12,24 @@
 		"format:all": "biome check --write --unsafe"
 	},
 	"dependencies": {
-		"@keystatic/core": "^0.5.48",
+		"@keystatic/core": "^0.5.50",
 		"@keystatic/next": "^5.0.4",
-		"@markdoc/markdoc": "^0.5.4",
+		"@markdoc/markdoc": "^0.5.7",
 		"helix-color": "^0.7.1",
 		"helix-css": "^1.0.3",
-		"next": "16.0.7",
-		"react": "19.2.1",
-		"react-dom": "19.2.1",
-		"sugar-high": "^0.9.5"
+		"next": "16.2.4",
+		"react": "19.2.5",
+		"react-dom": "19.2.5",
+		"sugar-high": "^1.1.0"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "2.2.0",
-		"@types/node": "^20",
-		"@types/react": "^19",
-		"@types/react-dom": "^19",
+		"@biomejs/biome": "2.4.13",
+		"@types/node": "^25.6.0",
+		"@types/react": "^19.2.14",
+		"@types/react-dom": "^19.2.3",
 		"babel-plugin-react-compiler": "1.0.0",
-		"baseline-browser-mapping": "^2.9.19",
+		"baseline-browser-mapping": "^2.10.21",
 		"sugar-high": "^0.9.5",
-		"typescript": "^5"
+		"typescript": "^6.0.3"
 	}
 }
