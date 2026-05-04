@@ -1,17 +1,13 @@
 import { Icon } from "@/components/Icon";
 import Link from "next/link";
+import { PageTitle } from "@/components/PageTitle";
 
 export default function Projects() {
   return (
-    <main className="page-projects p-block-9xl">
-      <section className="fade-in mb-3xl">
-        <div className="container-sm ds-flex flow-col-nw gap-3xl">
-          <div>
-            <h1>Projects</h1>
-            <p>Lorem ipsum</p>
-          </div>
-        </div>
-      </section>
+    <main className="page-projects p-block-9xl ds-flex flow-col-nw gap-9xl">
+      <PageTitle title="Lorem ipsum">
+        Lorem ipsum
+      </PageTitle>
       <section className="ds-flex flow-col-nw">
         <div className="container-sm ds-flex flow-col-nw gap-3xl">
           <div className="ds-flex flow-col-nw">

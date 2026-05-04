@@ -1,4 +1,4 @@
-import { type NavigationType, social } from "@config/navigation";
+import { type NavigationType, headerNav, social } from "@config/navigation";
 import { Button } from "./Button";
 import "./styles.css";
 
@@ -7,14 +7,15 @@ export const Header = () => {
 		<header className="header p-xs radius-md">
 			<nav className="height-fill ds-flex flow-col-nw lg:flow-row-rev-nw justify-between align-center">
 				<div className="ds-flex-center flow-col-nw lg:flow-row-nw gap-xs">
-					<Button href="/" id="homepage" icon="house" label="Homepage" />
-					<Button
-						href="/articles"
-						id="articles"
-						icon="newspaper"
-						label="Articles"
-					/>
-				</div>
+         {headerNav.map((item: NavigationType) => (
+            <Button 
+              key={item.id} 
+              href={item.href} 
+              id={item.id} 
+              icon={item.iconName} 
+              label={item.label} />
+          ))}
+        </div>
 				<div className="ds-flex-center flow-col-nw lg:flow-row-nw gap-xs">
 					{social.map((s: NavigationType) => (
 						<Button
