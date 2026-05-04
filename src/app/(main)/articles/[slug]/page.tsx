@@ -25,8 +25,8 @@ export async function generateMetadata({
 		};
 	}
 
-	// URL base do seu site (configure conforme seu domínio)
-	const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://seusite.com";
+	const baseUrl =
+		process.env.NEXT_PUBLIC_BASE_URL || "https://andreluizmagjr.com";
 	const articleUrl = `${baseUrl}/articles/${slug}`;
 
 	return {
@@ -39,15 +39,6 @@ export async function generateMetadata({
 			description: article.excerpt,
 			url: articleUrl,
 			type: "article",
-			// Se você tiver uma imagem de capa, adicione aqui:
-			// images: [
-			//   {
-			//     url: `${baseUrl}${article.coverImage}`,
-			//     width: 1200,
-			//     height: 630,
-			//     alt: article.title,
-			//   },
-			// ],
 		},
 
 		// Twitter
@@ -55,7 +46,6 @@ export async function generateMetadata({
 			card: "summary_large_image",
 			title: article.title,
 			description: article.excerpt,
-			// images: [`${baseUrl}${article.coverImage}`],
 		},
 
 		// Outras metadata úteis
@@ -83,10 +73,10 @@ export default async function Article({
 	const article = await reader.collections.posts.read(slug);
 
 	if (!article) {
-		notFound(); // Melhor que retornar div manualmente
+		notFound();
 	}
 
-	// Buscar conteúdo e dados relacionados em paralelo
+	// Search related content
 	const [{ node }, tagsData, categoriesData] = await Promise.all([
 		article.content(),
 		// Tags
@@ -98,7 +88,7 @@ export default async function Article({
 					return tag ? { slug, ...tag } : null;
 				}),
 		),
-		// Categorias
+		// Categories
 		Promise.all(
 			(article.category || [])
 				.filter((slug): slug is string => slug !== null)
@@ -109,7 +99,7 @@ export default async function Article({
 		),
 	]);
 
-	// Filtrar nulls
+	// Filter nulls
 	const tags = tagsData.filter(
 		(tag): tag is NonNullable<typeof tag> => tag !== null,
 	);
@@ -117,7 +107,7 @@ export default async function Article({
 		(cat): cat is NonNullable<typeof cat> => cat !== null,
 	);
 
-	// Validar e transformar o Markdoc
+	// Convert to markdown
 	const errors = Markdoc.validate(node);
 	if (errors.length) {
 		console.error(errors);
@@ -156,7 +146,7 @@ export default async function Article({
 						{/*<h1>{article.title}</h1>*/}
 						{Markdoc.renderers.react(renderable, React, {
 							components: {
-								CodeBlock, // Mapeie o nome para o componente
+								CodeBlock,
 							},
 						})}
 					</div>

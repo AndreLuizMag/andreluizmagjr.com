@@ -36,22 +36,22 @@ export const social: NavigationType[] = [
 ];
 
 export const headerNav: NavigationType[] = [
-  {
-    id: 'home',
-    label: "Home",
-    href: routes.home,
-    iconName: "house"
-  },
-  {
-    id: 'articles',
-    label: "Articles",
-    href: routes.articles,
-    iconName: "newspaper"
-  },
- {
-    id: 'projects',
-    label: "Projects",
-    href: routes.projects,
-    iconName: "windowMaximize"
-  },
-]
+	{
+		id: "home",
+		label: "Home",
+		href: routes.home,
+		iconName: "house",
+	},
+	{
+		id: "articles",
+		label: "Articles",
+		href: routes.articles,
+		iconName: "newspaper",
+	},
+	{
+		id: "projects",
+		label: "Projects",
+		href: routes.projects,
+		iconName: "windowMaximize",
+	},
+];

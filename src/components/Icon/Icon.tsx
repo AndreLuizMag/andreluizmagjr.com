@@ -4,12 +4,7 @@ import { useMemo } from "react";
 import { icons } from "./icons";
 import type { IconProps } from "./types";
 
-const Icon = ({
-	name,
-	width = 32,
-	height = 32,
-	className = "",
-}: IconProps) => {
+const Icon = ({ name, width = 32, height = 32, className = "" }: IconProps) => {
 	const iconData = useMemo(() => {
 		return icons.find((icon) => icon.displayName === name);
 	}, [name]);

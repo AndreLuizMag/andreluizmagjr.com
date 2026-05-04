@@ -3,6 +3,6 @@
  */
 export const routes = {
 	home: "/",
-  articles: "/articles",
-  projects: "/projects"
+	articles: "/articles",
+	projects: "/projects",
 } as const;

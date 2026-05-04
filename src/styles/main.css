@@ -5,8 +5,8 @@
 @import "./sugar-high.css";
 
 :root {
-  --font-family: var(--font-google-sans);  
-  --font-family-code: var(--font-google-sans-code);
+	--font-family: var(--font-google-sans);
+	--font-family-code: var(--font-google-sans-code);
 
 	--heading-color: var(--white-100);
 	--text-color: var(--white-96);
